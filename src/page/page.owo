@@ -27,6 +27,14 @@
       this.init()
       // 添加星光
       this.addStarfield()
+      // 添加模型
+      this.loadCollada()
+      // 添加主标题文字
+      this.addText()
+      // 添加光圈
+      this.addAperture()
+      // 添加环绕的线
+      this.addLine()
       const animate = () => {
         requestAnimationFrame(animate)
         this.data.controls.update()
@@ -158,6 +166,121 @@
       // light.position.x = 3e3 * Math.sin(4 * r),
       // light.position.y = 1e3,
       // light.position.z = 3e3 * Math.cos(4 * r)
+    },
+    loadCollada: function () {
+      console.log("Loading...")
+      const loader = new THREE.ColladaLoader;
+      loader.load("@|island.dae|", (e) => {
+        planet = e.scene;
+        // e.skins[0];
+        TweenLite.to(planet.scale, 2, {
+          x: 4,
+          y: 4,
+          z: 4,
+          ease: Back.easeOut
+        }),
+        this.data.group.add(planet)
+      })
+    },
+    addCircle: function(e) {
+      let t = e, r = e, i = new THREE.Geometry, n = i.vertices, a = 2 * Math.PI / t
+      for (let o = 0; t > o; o++) {
+        const s = r * Math.cos(a * o)
+        const h = r * Math.sin(a * o)
+        n.push(new THREE.Vector3(s, h, 0))
+      }
+      // 闭合线段
+      n.push(new THREE.Vector3(r * Math.cos(0), r * Math.sin(0), 0))
+      // i.computeLineDistances();
+      // 设置线的属性
+      var l = new THREE.LineBasicMaterial({
+        color: 16777215,
+        linewidth: 1,
+        opacity: .4,
+        transparent: true
+      }),
+      c = new THREE.Line(i, l);
+      c.computeLineDistances()
+      c.position.y = -1
+      c.rotation.x = Math.PI / 2
+      return c
+    },
+    addLine: function () {
+      // 圆圈
+      var o = this.addCircle(50);
+      this.data.scene.add(o)
+      o.scale.set(.2, .2, .2)
+      TweenLite.to(o.scale, .7, {
+        x: 1,
+        y: 1,
+        z: 1,
+        ease: Back.easeOut,
+        delay: .8
+      });
+      var s = this.addCircle(70);
+      this.data.scene.add(s)
+
+      // 圆圈
+      s.scale.set(.2, .2, .2)
+      TweenLite.to(s.scale, .7, {
+        x: 1,
+        y: 1,
+        z: 1,
+        ease: Back.easeOut,
+        delay: .7
+      });
+      var h = this.addCircle(80);
+      this.data.scene.add(h)
+      
+      // 圆圈
+      h.scale.set(.2, .2, .2)
+      TweenLite.to(h.scale, .7, {
+        x: 1,
+        y: 1,
+        z: 1,
+        ease: Back.easeOut,
+        delay: .5
+      });
+      var l = this.addCircle(30);
+      this.data.scene.add(l)
+      
+      l.scale.set(.2, .2, .2)
+      TweenLite.to(l.scale, .7, {
+        x: 1,
+        y: 1,
+        z: 1,
+        ease: Back.easeOut,
+        delay: .9
+      })
+    },
+    addText: function() {
+      // 文字
+      new THREE.TextureLoader().load("@|text.png|", texture => {
+        var n = new THREE.SpriteMaterial({
+          map: texture,
+          color: 16777215,
+          fog: true
+        })
+        var a = new THREE.Sprite(n);
+        a.scale.set(45, 8, 45)
+        a.rotation.copy(this.data.camera.rotation)
+        a.translateY(25)
+        a.updateMatrix()
+        this.data.scene.add(a);
+      })
+    },
+    addAperture: function () {
+      // 光圈
+      var e = new THREE.SphereGeometry(40, 16, 16),
+      t = new THREE.MeshBasicMaterial({
+        color: 16777215,
+        wireframe: false,
+        transparent: true,
+        opacity: .05
+      });
+      t.depthWrite = false;
+      var r = new THREE.Mesh(e, t);
+      this.data.group.add(r);
     }
   }
 </script>
