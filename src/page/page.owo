@@ -20,7 +20,251 @@
       ecart: 0,
       isDrag: false,
       targetRotation: 0,
-      stopTimer: true
+      stopTimer: true,
+      mockData: {
+        "wishes": [{
+          "name": "Denis",
+          "place": "Ekaterinburg, Russia",
+          "id": "367",
+          "wishtype": "money",
+          "wish": "Win the lottery "
+        }, {
+          "name": "Alisa",
+          "place": "New York City",
+          "id": "228",
+          "wishtype": "travel",
+          "wish": "Enjoy wonderful travels"
+        }, {
+          "name": "xinxin",
+          "place": "shenzhen",
+          "id": "742",
+          "wishtype": "peace",
+          "wish": "Write for peace"
+        }, {
+          "name": "",
+          "place": "",
+          "id": "1748",
+          "wishtype": "default",
+          "wish": ""
+        }, {
+          "name": "Zachary",
+          "place": "Millstone, KY",
+          "id": "2450",
+          "wishtype": "peace",
+          "wish": "Write for peace"
+        }, {
+          "name": "",
+          "place": "",
+          "id": "2448",
+          "wishtype": "strong",
+          "wish": "Be Strong"
+        }, {
+          "name": "Filip",
+          "place": "Slovakia",
+          "id": "414",
+          "wishtype": "btf",
+          "wish": "Save Marty's children"
+        }, {
+          "name": "45",
+          "place": "45",
+          "id": "469",
+          "wishtype": "default",
+          "wish": "45"
+        }, {
+          "name": "Kseniya",
+          "place": "Astrakhan",
+          "id": "1451",
+          "wishtype": "jedi",
+          "wish": "Become the next Jedi"
+        }, {
+          "name": "888",
+          "place": "tai",
+          "id": "1309",
+          "wishtype": "love",
+          "wish": "Love and be loved"
+        }, {
+          "name": "Camille",
+          "place": "France",
+          "id": "540",
+          "wishtype": "default",
+          "wish": "I wish to meet Charly (France)"
+        }, {
+          "name": "Neena",
+          "place": "India",
+          "id": "1215",
+          "wishtype": "strong",
+          "wish": "Be Strong"
+        }, {
+          "name": "asd",
+          "place": "russia",
+          "id": "2505",
+          "wishtype": "space",
+          "wish": "Discover new horizons"
+        }, {
+          "name": "kez",
+          "place": "singapore",
+          "id": "1329",
+          "wishtype": "default",
+          "wish": "marry chucky"
+        }, {
+          "name": "Mira",
+          "place": "Russia",
+          "id": "1570",
+          "wishtype": "default",
+          "wish": "end of the war in Ukraine"
+        }, {
+          "name": "",
+          "place": "",
+          "id": "2275",
+          "wishtype": "monday",
+          "wish": "Have no mondays anymore"
+        }, {
+          "name": "",
+          "place": "",
+          "id": "2052",
+          "wishtype": "default",
+          "wish": ""
+        }, {
+          "name": "Julie",
+          "place": "Paris",
+          "id": "211",
+          "wishtype": "travel",
+          "wish": "Enjoy wonderful travels"
+        }, {
+          "name": "jodavaga",
+          "place": "Colombia",
+          "id": "721",
+          "wishtype": "space",
+          "wish": "Discover new horizons"
+        }, {
+          "name": "",
+          "place": "",
+          "id": "1791",
+          "wishtype": "default",
+          "wish": ""
+        }, {
+          "name": "Elena",
+          "place": "México city",
+          "id": "434",
+          "wishtype": "default",
+          "wish": "Save dogs"
+        }, {
+          "name": "Jayce",
+          "place": "Nanjing,China",
+          "id": "1045",
+          "wishtype": "money",
+          "wish": "Win the lottery "
+        }, {
+          "name": "jagadeesh",
+          "place": "hello",
+          "id": "1503",
+          "wishtype": "space",
+          "wish": "Discover new horizons"
+        }, {
+          "name": "Арс",
+          "place": "Москва",
+          "id": "1634",
+          "wishtype": "default",
+          "wish": "Желаю всем людям на земле большого здоровья"
+        }, {
+          "name": "Syl",
+          "place": "NY",
+          "id": "981",
+          "wishtype": "earth",
+          "wish": "Save planet earth"
+        }, {
+          "name": "Jimmy",
+          "place": "Sgp",
+          "id": "1881",
+          "wishtype": "strong",
+          "wish": "Be Strong"
+        }, {
+          "name": "Maria",
+          "place": "Romania",
+          "id": "2388",
+          "wishtype": "monday",
+          "wish": "Have no mondays anymore"
+        }, {
+          "name": "marcello stoppa",
+          "place": "novara",
+          "id": "1138",
+          "wishtype": "space",
+          "wish": "Discover new horizons"
+        }, {
+          "name": "afreire",
+          "place": "lisboa \/ portugal",
+          "id": "427",
+          "wishtype": "jedi",
+          "wish": "Become the next Jedi"
+        }, {
+          "name": "",
+          "place": "",
+          "id": "2464",
+          "wishtype": "default",
+          "wish": ""
+        }, {
+          "name": "teguh",
+          "place": "indonesia",
+          "id": "1621",
+          "wishtype": "love",
+          "wish": "Love and be loved"
+        }, {
+          "name": "Beyonce",
+          "place": "Korea",
+          "id": "202",
+          "wishtype": "default",
+          "wish": "Leave Korea"
+        }, {
+          "name": "success",
+          "place": "india",
+          "id": "456",
+          "wishtype": "money",
+          "wish": "Win the lottery "
+        }, {
+          "name": "asdf",
+          "place": "mumbai",
+          "id": "961",
+          "wishtype": "strong",
+          "wish": "Be Strong"
+        }, {
+          "name": "Xav",
+          "place": "FRANCE",
+          "id": "140",
+          "wishtype": "default",
+          "wish": "LOVE AND BE LOVED, ENJOY WONDERFUL TRAVELS, WIN THE LOTTERY, BE STRONGER, HAVE A PEACEFUL PLANET WITHOUT TERRORIST ATTACKS"
+        }, {
+          "name": "",
+          "place": "",
+          "id": "1727",
+          "wishtype": "default",
+          "wish": ""
+        }, {
+          "name": "hyewon",
+          "place": "Seoul",
+          "id": "1080",
+          "wishtype": "love",
+          "wish": "Love and be loved"
+        }, {
+          "name": "MONA",
+          "place": "Romania",
+          "id": "949",
+          "wishtype": "travel",
+          "wish": "Enjoy wonderful travels"
+        }, {
+          "name": "",
+          "place": "",
+          "id": "1054",
+          "wishtype": "space",
+          "wish": "Discover new horizons"
+        }, {
+          "name": "Кристина",
+          "place": "Сыктывкаре",
+          "id": "1671",
+          "wishtype": "money",
+          "wish": "Win the lottery "
+        }],
+        "totalwishes": 2683
+      }
     },
     created: function () {
       // 创建3D场景
@@ -35,6 +279,8 @@
       this.addAperture()
       // 添加环绕的线
       this.addLine()
+      // 添加圆球
+      this.addMessage()
       const animate = () => {
         requestAnimationFrame(animate)
         this.data.controls.update()
@@ -281,6 +527,71 @@
       t.depthWrite = false;
       var r = new THREE.Mesh(e, t);
       this.data.group.add(r);
+    },
+    addMessage: function () {
+      let ind = 0
+      this.data.mockData.wishes.forEach(element => {
+        this.addWishes(ind++, element.name + " (" + element.place + ")", element.wishtype)
+      })
+    },
+    makeTextSprite: function (text, config = {}, r, i) {
+      var n = config.hasOwnProperty("fontface") ? config.fontface: "Raleway",
+      a = config.hasOwnProperty("fontsize") ? config.fontsize: 17,
+      o = config.hasOwnProperty("borderThickness") ? config.borderThickness: 4,
+      s = config.hasOwnProperty("borderColor") ? config.borderColor: {r: 10,g: 10,b: 20,a: 1},
+      h = config.hasOwnProperty("backgroundColor") ? config.backgroundColor: {r: 255,g: 255,b: 255,a: 1},
+      canvasTemp = document.createElement("canvas");
+      canvasTemp.width = 800,
+      canvasTemp.height = 160;
+      var u = canvasTemp.getContext("2d");
+      u.font = a + "px " + n,
+      u.textBaseline = "top";
+      u.fillStyle = "rgba(" + h.r + "," + h.g + "," + h.b + "," + h.a + ")"
+      u.strokeStyle = "rgba(" + s.r + "," + s.g + "," + s.b + "," + s.a + ")"
+      u.lineWidth = o
+      u.fillStyle = "rgba(255, 255, 255, 1)"
+      // 文字 x y
+      u.fillText(text, 435, 70);
+      var d = new THREE.Texture(canvasTemp);
+      d.needsUpdate = true;
+      var f = new THREE.SpriteMaterial({
+        map: d
+      }),
+      E = new THREE.Sprite(f),
+      m = 40;
+      E.scale.set(.6 * m, .1 * m, 1)
+      return E
+    },
+    addWishes: function (ind, text) {
+      const opacity = 3 * Math.random() / 10 + .7
+      var n = 2 * ind * .175 + Math.PI
+      // 小图标
+      const texture = new THREE.TextureLoader().load("@|blove.png|")
+      let part = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: texture,
+        color: 16777215,
+        opacity: opacity,
+        transparent: true
+      }))
+      part.scale.set(2.5, 2.5, 2.5);
+      // part.position.x = 0,
+      // part.position.y = 0,
+      // part.position.z = 0;
+      part.name = ind
+      this.data.group2.add(part)
+
+      // 信息
+      var textTemp = this.makeTextSprite(text, {}, "", opacity);
+      // u.position.y = -2
+      part.add(textTemp)
+      
+      TweenLite.to(part.position, .6, {
+        x: 70 * Math.sin(n),
+        y: -(ind / 2) + 20 * Math.random(),
+        z: 70 * Math.cos(n),
+        ease: Back.easeOut,
+        delay: .9 + .1 * ind
+      })
     }
   }
 </script>
