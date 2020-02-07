@@ -1,0 +1,173 @@
+<template lang="pug">
+.home
+  #WebGLCanvas
+</template>
+
+<script>
+  module.exports = {
+    data: {
+      mouse: null,
+      scene: null,
+      renderer: null,
+      WebGLCanvas: null,
+      width: null,
+      height: null,
+      camera: null,
+      camerapos: {},
+      raycaster: null,
+      light: null,
+      controls: null,
+      ecart: 0,
+      isDrag: false,
+      targetRotation: 0,
+      stopTimer: true
+    },
+    created: function () {
+      // 创建3D场景
+      this.init()
+      // 添加星光
+      this.addStarfield()
+      const animate = () => {
+        requestAnimationFrame(animate)
+        this.data.controls.update()
+        this.render()
+      }
+      animate()
+    },
+    init: function () {
+      this.data.width = window.innerWidth
+      this.data.height = window.innerHeight
+      this.data.WebGLCanvas = document.getElementById("WebGLCanvas")
+      this.data.mouse = new THREE.Vector2
+      this.data.scene = new THREE.Scene
+      this.data.renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true
+      })
+      this.data.renderer.setSize(this.data.width, this.data.height)
+      this.data.renderer.sortObjects = true
+      this.data.WebGLCanvas.appendChild(this.data.renderer.domElement)
+      this.data.camera = new THREE.PerspectiveCamera(400, this.data.width / this.data.height, 1, 2000)
+      this.data.camerapos.positionZ = this.data.camera.position.z = 150
+      this.data.camerapos.positionY = this.data.camera.position.y = 25
+      this.data.camerapos.positionX = 0
+      this.data.group = new THREE.Group
+      this.data.group2 = new THREE.Group
+      this.data.group3 = new THREE.Group
+      this.data.scene.add(this.data.group)
+      this.data.scene.add(this.data.group2)
+      this.data.scene.add(this.data.group3)
+      this.data.raycaster = new THREE.Raycaster
+      // 添加灯光
+      this.data.light = new THREE.PointLight(16777215, 1.5)
+      this.data.light.position.set(100, 100, 200)
+      this.data.scene.add(this.data.light);
+      // 添加灯光2
+      const light2 = new THREE.HemisphereLight(2865844, 2865844, 1.25)
+      light2.color.setHex(15239532)
+      light2.groundColor.setHSL(.1, .8, .4)
+      light2.position.set( - 1, 1.75, 1)
+      this.data.scene.add(light2)
+      // document.addEventListener("mousemove", onDocumentMouseMove2, false),
+      // WebGLCanvas.addEventListener("mousedown", onDocumentMouseDown, false),
+      // WebGLCanvas.addEventListener("touchstart", onDocumentTouchStart, false),
+      // WebGLCanvas.addEventListener("touchmove", onDocumentTouchMove, false),
+      // window.addEventListener("resize", onWindowResize, false),
+      this.data.controls = new THREE.OrbitControls(this.data.camera, this.data.renderer.domElement, this.data.renderer.domElement)
+      this.data.controls.minDistance = 120
+      this.data.controls.maxDistance = 200
+      this.data.controls.maxPolarAngle = Math.PI / 2
+      this.data.controls.minPolarAngle = .8
+    },
+    addParticlesCircle: function (e) {
+      var t = new THREE.Geometry
+      var r = new THREE.TextureLoader().load("@|spark.png|")
+      var i = new THREE.PointsMaterial({
+        size: 5,
+        map: r,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+        depthTest: !0,
+        transparent: !0,
+        opacity: .9 * Math.random()
+      })
+      for (n = (40 * Math.random(), 0); 2e3 > n; n += 2) {
+        var a = .175 * n + Math.PI,
+        o = e * Math.sin(a) * Math.random() * 5,
+        s = 30 * Math.random() - 15,
+        h = e * Math.cos(a) * Math.random() * 5;
+        t.vertices.push(new THREE.Vector3(o, s, h))
+      }
+      var l = new THREE.Points(t, i);
+      return l
+    },
+    addStarfield: function () {
+      const circleTemp = this.addParticlesCircle(40);
+      this.data.group3.add(circleTemp)
+      TweenLite.to(circleTemp.material, 0, {
+        opacity: 0
+      })
+      TweenLite.to(circleTemp.material, 1, {
+        opacity: .9 * Math.random(),
+        delay: 2
+      });
+
+      const circleTemp2 = this.addParticlesCircle(60);
+      this.data.group2.add(circleTemp2)
+      TweenLite.to(circleTemp2.material, 0, {
+        opacity: 0
+      })
+      TweenLite.to(circleTemp2.material, 1, {
+        opacity: .9 * Math.random(),
+        delay: 2
+      });
+      var circleTemp3 = this.addParticlesCircle(83);
+      this.data.group3.add(circleTemp3)
+      TweenLite.to(circleTemp3.material, 0, {
+        opacity: 0
+      })
+      TweenLite.to(circleTemp3.material, 1, {
+        opacity: .9 * Math.random(),
+        delay: 2
+      })
+    },
+    render: function () {
+      // if (this.data.isDrag) {
+      //   this.data.ecart = .1 * (this.data.targetRotation - this.data.group.rotation.y
+      //   this.data.stopTimer = false
+      //   setTimeout(() => {
+      //     stopTimer = !0
+      //   }, 3000)
+      //   this.data.isIntro = false
+      // } else {
+        
+      // }
+      // this.data.isDrag ?  : ecart = stopTimer ? -1 / 800 : .1 * (targetRotation - group.rotation.y),
+      // isIntro || (group.rotation.y += ecart),
+      // group2.rotation.y += .7 * ecart,
+      // group3.rotation.y += .9 * ecart,
+      // camera.lookAt(scene.position);
+      // var e = new THREE.Vector3(mouse.x, mouse.y, 1).unproject(camera);
+      // raycaster.set(camera.position, e.sub(camera.position).normalize());
+      // // console.log(objects)
+      // // return
+      // // var t = raycaster.intersectObjects(objects);
+      // // t.length > 0 ? INTERSECTED != t[0].object && (INTERSECTED = t[0].object, WebGLCanvas.classList.add("cursoron")) : (WebGLCanvas.classList.remove("cursoron"), INTERSECTED = null)
+      this.data.renderer.render(this.data.scene, this.data.camera);
+      // var r = 5e-4 * Date.now();
+      // light.position.x = 3e3 * Math.sin(4 * r),
+      // light.position.y = 1e3,
+      // light.position.z = 3e3 * Math.cos(4 * r)
+    }
+  }
+</script>
+
+
+<style lang="less">
+.home {
+  background-image: url('@|bg.jpg|');
+  background-size: auto 100%;
+  background-position: center;
+  overflow: hidden;
+}
+</style>
