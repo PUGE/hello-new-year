@@ -386,21 +386,24 @@
       })
     },
     render: function () {
-      // if (this.data.isDrag) {
-      //   this.data.ecart = .1 * (this.data.targetRotation - this.data.group.rotation.y
-      //   this.data.stopTimer = false
-      //   setTimeout(() => {
-      //     stopTimer = !0
-      //   }, 3000)
-      //   this.data.isIntro = false
-      // } else {
-        
-      // }
-      // this.data.isDrag ?  : ecart = stopTimer ? -1 / 800 : .1 * (targetRotation - group.rotation.y),
-      // isIntro || (group.rotation.y += ecart),
-      // group2.rotation.y += .7 * ecart,
-      // group3.rotation.y += .9 * ecart,
-      // camera.lookAt(scene.position);
+      if (this.data.isDrag) {
+        this.data.ecart = .1 * (this.data.targetRotation - this.data.group.rotation.y)
+        this.data.stopTimer = false
+        setTimeout(() => {
+          this.data.stopTimer = true
+        }, 3000)
+        this.data.isIntro = false
+      } else {
+        if (this.data.stopTimer) {
+          this.data.ecart = -1 / 800
+        } else {
+          this.data.ecart = .1 * (this.data.targetRotation - this.data.group.rotation.y)
+        }
+      }
+      this.data.isIntro || (this.data.group.rotation.y += this.data.ecart)
+      this.data.group2.rotation.y += .7 * this.data.ecart
+      this.data.group3.rotation.y += .9 * this.data.ecart
+      this.data.camera.lookAt(this.data.scene.position);
       // var e = new THREE.Vector3(mouse.x, mouse.y, 1).unproject(camera);
       // raycaster.set(camera.position, e.sub(camera.position).normalize());
       // // console.log(objects)
